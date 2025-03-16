@@ -1,58 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Play Audio from Google Drive</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #111;
-      font-family: Arial, sans-serif;
-    }
-
-    #playButton {
-      background-color: #1db954;
-      color: white;
-      border: none;
-      padding: 20px 40px;
-      font-size: 24px;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: transform 0.2s, background-color 0.3s;
-    }
-
-    #playButton:hover {
-      background-color: #17a44b;
-      transform: scale(1.1);
-    }
-  </style>
+  <title>Audio Player</title>
 </head>
 <body>
-
-  <button id="playButton">▶ Play</button>
-
+  <button id="playButton">Play</button>
   <audio id="myAudio">
-    <source src="https://docs.google.com/uc?export=download&id=100ob1Bj58KGmy7Ej2blc5HRh_00PnCil" type="audio/mpeg">
+    <source src="https://1drv.ms/u/c/bd7caf17b05c2768/EfmLQCFG1ntGmLv7i1bfFicBnXbqZrLSC7fWSahktcOyGA?e=cGhZOO" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-
   <script>
-    const button = document.getElementById('playButton');
-    const audio = document.getElementById('myAudio');
+    const playButton = document.getElementById('playButton');
+    const audioPlayer = document.getElementById('myAudio');
 
-    button.addEventListener('click', () => {
-      audio.play().then(() => {
-        console.log('Audio is playing!');
-      }).catch((error) => {
-        console.error('Error playing audio:', error);
-      });
+    playButton.addEventListener('click', () => {
+      audioPlayer.play();
+    });
+
+    audioPlayer.addEventListener('error', () => {
+      console.error('Audio playback failed.');
+      alert('Audio playback failed. Please check your internet connection or the audio file.');
     });
   </script>
+</body>
+</html>
 
 </body>
 </html>
