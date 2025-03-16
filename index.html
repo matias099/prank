@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Play Audio Button</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Play Audio from Google Drive</title>
   <style>
     body {
       margin: 0;
@@ -35,14 +36,21 @@
 
   <button id="playButton">▶ Play</button>
 
-  <audio id="myAudio" src="https://drive.google.com/file/d/100ob1Bj58KGmy7Ej2blc5HRh_00PnCil/view?usp=sharing"></audio>
+  <audio id="myAudio">
+    <source src="https://docs.google.com/uc?export=download&id=100ob1Bj58KGmy7Ej2blc5HRh_00PnCil" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
   <script>
     const button = document.getElementById('playButton');
     const audio = document.getElementById('myAudio');
 
     button.addEventListener('click', () => {
-      audio.play();
+      audio.play().then(() => {
+        console.log('Audio is playing!');
+      }).catch((error) => {
+        console.error('Error playing audio:', error);
+      });
     });
   </script>
 
