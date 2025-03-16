@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Audio Button</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #111;
+      font-family: Arial, sans-serif;
+    }
+
+    #playButton {
+      background-color: #1db954;
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      font-size: 24px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    #playButton:hover {
+      background-color: #17a44b;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <button id="playButton">▶ Play</button>
+
+  <audio id="myAudio" src="https://soundcloud.com/matias-blebel/moaning-earrape-sound-effect?si=2e1d0497a8af4705b459f8fccdded392&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"></audio>
+
+  <script>
+    const button = document.getElementById('playButton');
+    const audio = document.getElementById('myAudio');
+
+    button.addEventListener('click', () => {
+      audio.play();
+    });
+  </script>
+
+</body>
+</html>
